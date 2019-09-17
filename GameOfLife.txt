@@ -1,0 +1,5 @@
+The root process is responsible for (reading the input from the text OR to generate random numbers) to fill the universe. 
+It then distributes the chunks of the universe to old_Universe of other processes using Scatterv method of MPI. 
+All processes work in their chunk to generate the new_Universe. The boundary elements of the chunks have to be communicated with the neighbour processes. This is done using send and recv methods of MPI. 
+For each generation the processes alter the old_Universe and new_Universe i.e in ith iteration old_Universe is read to generate new_Universe and in (i+1)th generation new_Universe is used to generate old_Universe. 
+Finally when all the processes have done their work the Root process gathers chunks from other processes for the printing.
